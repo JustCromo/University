@@ -24,7 +24,6 @@ function parita(T){
 }
 
 /*
-
 Sia T un ABR come definito a lezione; in aggiunta, ogni nodo ha una proprietà booleana par.
 
 -Si scriva in L senza tipi una funzione parita(T), che dato un ABR T scriva nella proprietà par di ogni nodo x 
