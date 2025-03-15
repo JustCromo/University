@@ -1,42 +1,36 @@
 class BNodePost{
-    valore;
-    label = "";
+    val;
+    label="";
     children = [];
 
-    constructor(valore, label=""){
-        this.valore = valore;
-        this.label = label;
+    constructor(val, label=""){
+        this.val = val;
+        this.label = label
     }
 
-    add(...args){
-        if(args.length + this.children.length > 2) throw new BadTreeError("errore");
-        else{
-            for(let i of args){
-                this.children.push(i);
-            }
+    add(...node){
+
+        if(node.length + this.children.length > 2) throw new BadTreeError("errore");
+
+        for(let i of node){
+            if(this.children.length <= 2) this.children.push(i);
         }
     }
 
     *visit(){
 
-        if(this.children){
-            if(this.children[0]) yield* this.children[0].visit();
-            if(this.children[1]) yield* this.children[1].visit();
-        
-        }
+        if(this.children[0]) yield* this.children[0].visit();
+        if(this.children[1]) yield* this.children[1].visit();
 
-        yield this.valore;
+        yield this.val;
         
     }
-
-
 }
-
 
 class BadTreeError extends Error{
     constructor(message){
         super(message);
-        this.name = "BadTreeError";
+        this.name="BadTreeError";
     }
 }
 
