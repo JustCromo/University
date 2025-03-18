@@ -6,13 +6,13 @@ interface Nodo<T>{
 function sbarba<T>(t: Nodo<T>, s:(n: T) => boolean ):void{
 
     if(t.figli){
-            for(let i:number = 0; i<t.figli.length; i++){
-                if( s(t.figli[i].val) ){
-                    t.figli.splice(i,1);
-                    i--;
-                }else sbarba(t.figli[i], s);
+        for(let i:number = 0; i<t.figli.length; i++){
+            if( s(t.figli[i].val) ){
+                t.figli.splice(i,1);
+                i--;
+            }else sbarba(t.figli[i], s);
 
-            }   
+        }   
     }
 }
 
