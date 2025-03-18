@@ -41,11 +41,11 @@ class BadArgError extends Error{
     pos;
     val;
 
-    constructor(pos, val){
+    constructor(pos, val){  //message che viene da Error e' pure parte del constructor.
         this.pos = pos;
         this.val = val; 
         super(message);
-        if(val < 0  || val > 1000) throw new OutOfRangeError("OutOfRange");
+        if(val < 0  || val > 1000) throw new OutOfRangeError("OutOfRange");         //Non ha senso lanciare degli errori negli errori. Questi tre casi vanno nel codice.
         if(!Number.isInteger(val)) throw new NotIntegerError("NotIntegerError");
         if(!isPrime(val)) throw new NotPrimeError("NotPrimeError");
         this.name = "BadArgsError";
@@ -54,22 +54,22 @@ class BadArgError extends Error{
 }
 
 class OutOfRangeError extends BadArgError{
-    constructor(message){
-        super(message);
+    constructor(message){   //pos e val che vengono da BadArgError son pure parte del constructor.
+        super(message);     //pos e val che vengono da BadArgError son pure parte del super.
         this.name = "OutOfRangeError";
     }
 }
 
 class NotIntegerError extends BadArgError{
-    constructor(message){
-        super(message);
+    constructor(message){    //pos e val che vengono da BadArgError son pure parte del constructor.
+        super(message);      //pos e val che vengono da BadArgError son pure parte del super.
         this.name = "NotIntegerError";
     }
 }
 
 class NotPrimeError extends BadArgError{
-    constructor(message){
-        super(message);
+    constructor(message){      //pos e val che vengono da BadArgError son pure parte del constructor.
+        super(message);        //pos e val che vengono da BadArgError son pure parte del super.
         this.name = "NotPrimeError";
     }
 }
