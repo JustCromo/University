@@ -9,12 +9,13 @@ function tagliaAlberi(T){
     if(T.sx) if(Object.keys(T.sx).length !== 0) tagliaAlberi(T.sx);
     if(T.dx) if(Object.keys(T.dx).length !== 0) tagliaAlberi(T.dx);
 
-
 }
 
 /*
 
-Si scriva una funzione tagliaAlberi(T), che prende come parametro un albero binario T (i cui nodi sono implementati come visto a lezione come oggetti con chiavi val, sx e dx). La funzione taglia i sottoalberi 'secchi'. Un sottoalbero è secco se il valore nella radice del sottoalbero è < 0. Il taglio avviene eliminando il contenuto del nodo secco (viene eliminato il contenuto, non il nodo: quindi resta un { }) - le proprietà val, sx e dx (si veda l'esempio).
+Si scriva una funzione tagliaAlberi(T), che prende come parametro un albero binario T (i cui nodi sono implementati come visto a lezione come oggetti con chiavi val, sx e dx). 
+La funzione taglia i sottoalberi 'secchi'. Un sottoalbero è secco se il valore nella radice del sottoalbero è < 0. Il taglio avviene eliminando il contenuto del nodo secco 
+(viene eliminato il contenuto, non il nodo: quindi resta un { }) - le proprietà val, sx e dx (si veda l'esempio).
 
 La funzione non deve restituire nulla (no return).
 
