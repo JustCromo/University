@@ -1,5 +1,7 @@
 function memo(f){
+
     let cache = new Map();
+    
     let g = function(x){
         if(cache.has(x)) return cache.get(x);
         else{
