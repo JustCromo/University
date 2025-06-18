@@ -1,13 +1,10 @@
 function quickSort(A, p, r){
 
-    let q = Math.floor((p+r)/2);
-
     if(p < r){
-        q = partiziona(A, p, q, r);
+        let q = partiziona(A, p, q, r);
+        quickSort(A, p, q-1);
+        quickSort(A, q+1, r);
     }
-    
-    quickSort(A, p, q-1);
-    quickSort(A, q+1, r);
 
 }
 
@@ -19,7 +16,7 @@ function partiziona(A, p, q, r){
     for(let j = p; j < r-1; j++){
         
         if(A[j] <= x){
-            i = i+1;
+            i++;
             [A[i], A[j]] = [A[j], A[i]];
         }
 
