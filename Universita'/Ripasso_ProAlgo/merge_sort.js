@@ -1,43 +1,42 @@
-function mergeSort(A, p, r){
-
-    if (p < r){
-
+function mergeSort(A, p, r) {
+    if (p < r) {
         let q = Math.floor((p + r) / 2);
         mergeSort(A, p, q);
         mergeSort(A, q + 1, r);
         merge(A, p, q, r);
     }
-
 }
 
-function merge(A, p, q, r){
-
-    let L = [];
-    let R = [];
-
-    for(let i = 0; i < r; i++){
-
-        if(A[i] <= q) L.push(A[i]);
-        else R.push(A[i]);
-
-    }
+function merge(A, p, q, r) {
+    
+    let L = A.slice(p, q + 1);
+    let R = A.slice(q + 1, r + 1);
 
     let i = 0;
     let j = 0;
+    let k = p;
 
-    for(let k = 0; k < r; k++){
-        
-        if(L[i] <= R[i]){
-            A[k] = L[i];
-            i = i+1;
-        }else{
-            A[k] = R[j];
-            j = j+1;
+    while (i < L.length && j < R.length) {
+        if (L[i] <= R[j]) {
+            A[k++] = L[i++];
+        } else {
+            A[k++] = R[j++];
         }
-
     }
 
+    while (i < L.length) {
+        A[k++] = L[i++];
+    }
+
+    while (j < R.length) {
+        A[k++] = R[j++];
+    }
 }
+
+let A = [1,5,4,3,8,2];
+mergeSort(A, 0, A.length-1);
+
+console.log(A);
 
 //costo O(n log n)
 
