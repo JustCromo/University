@@ -8,7 +8,7 @@ function quickSort(A, p, r){
 
 }
 
-function partiziona(A, p, q, r){
+function partiziona(A, p, r){
 
     let x = A[r];
     let i = p - 1;
